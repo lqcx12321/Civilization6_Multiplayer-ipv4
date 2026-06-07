@@ -1,13 +1,30 @@
-# 文明6联机 - IPv4 游戏发现
+# 文明6联机 - IPv4
 
 > 改自：[xaxys/injciv6](https://github.com/xaxys/injciv6)  
 > 本仓库仅保留 **IPv4 客户端联机** 功能，GUI 已精简。
 
+原作者仓库利用ipv6进行联机很方便，但是目前校园网环境通常不支持ipv6，于是进行部分功能添加。
 利用 Hook 拦截游戏 UDP 广播，将其改为单播到指定服务器 IPv4 地址，实现基于 IP 的房间发现。
 
 ## 使用方法
 
 **注入工具可能被杀毒软件拦截，使用前请关闭 Windows Defender 或添加白名单。**
+
+### 0.前置配置
+
+大体分为两步
+第一步所有进行联机玩家先要进入虚拟局域网
+
+> 参照:[docker-zerotier-planet](https://github.com/xubiaolin/docker-zerotier-planet)
+
+第二步加入房间玩家启动gui注入ip
+
+### 1.创建虚拟局域网
+
+[![通过雨云一键部署](https://rainyun-apps.cn-nb1.rains3.com/materials/deploy-on-rainyun-cn.svg)](https://app.rainyun.com/apps/rca/store/6215?ref=220429)
+有免费试用，可以试试
+从上面链接启动后选择最低配置，3-4个人玩完全没问题，有需求可以自行调整
+![ui](assets/yuyun1.png)
 
 ### GUI 方式（推荐）
 
