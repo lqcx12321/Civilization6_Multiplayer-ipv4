@@ -24,18 +24,26 @@
 [![通过雨云一键部署](https://rainyun-apps.cn-nb1.rains3.com/materials/deploy-on-rainyun-cn.svg)](https://app.rainyun.com/apps/rca/store/6215?ref=220429)
 
 #### 1.1 配置服务器
+
 有免费试用，可以试试
 从上面链接启动后选择最低配置，3-4个人玩完全没问题，有需求可以自行调整
+
 ![ui](assets/yuyun1.png)
 
 #### 1.2 下载 planet 文件
+
 请妥善保存这些文件，后续配置客户端时会用到
+
 ![ui](assets/yuyun2.png)
 
 #### 1.3 新建网络
+
 ![ui](assets/yuyun3.png)
+
 访问 `http://上图1:上图2` 进入 controller 页面（不要写成https）
+
 ![ui](assets/net1.png)
+
 **默认登录信息：**
 - 用户名：`admin`
 - 密码：`password`
@@ -44,17 +52,76 @@
 2. 点击 "Add Network" 按钮创建新网络
 3. 输入一个便于识别的网络名称，其他选项可保持默认
 4. 点击 "Create Network" 按钮完成创建
+
 ![ui](assets/net2.png)
 
 创建成功后系统会自动生成一个网络 ID，这个 ID 在后续客户端配置时会用到，请记录下来。
+
 ![ui](assets/net3.png)
 
-### GUI 方式（推荐）
+#### 1.4 分配网络 IP
+
+1. 选中 "Easy Setup"
+![assign_id](./assets/net4.png)
+
+2. 生成 IP 范围
+![ip_addr](./assets/net5.png)
+
+#### 1.5 客户端配置
+
+首先去[ZeroTier 官网](https://www.zerotier.com/download/)下载一个 ZeroTier 客户端
+
+将 `planet` 文件覆盖粘贴到 `C:\ProgramData\ZeroTier\One` 中（这个目录是个隐藏目录，需要允许查看隐藏目录才行）
+
+1. 按 `Win + S` 搜索 "服务"
+![ui](assets/service.png)
+
+2. 找到 ZeroTier One，并且重启服务
+![ui](assets/restart_service.png)
+
+使用管理员身份打开 PowerShell，执行如下命令：
+```powershell
+PS C:\Windows\system32> zerotier-cli.bat join 网络id
+200 join OK
+PS C:\Windows\system32>
+```
+
+> **注意**：网络 ID 就是在网页里面创建的那个网络 ID
+
+#### 1.6 授权设备
+登录管理后台可以看到有个新的客户端，勾选 `Authorized` 即可
+
+![ui](assets/net6.png)
+
+IP assignment 里面会出现 ZeroTier 的内网 IP
+
+![ui](assets/net7.png)
+
+执行如下命令验证连接状态：
+
+```powershell
+PS C:\Windows\system32> zerotier-cli.bat peers
+200 peers
+<ztaddr>   <ver>  <role> <lat> <link> <lastTX> <lastRX> <path>
+fcbaeb9b6c 1.8.7  PLANET    52 DIRECT 16       8994     1.1.1.1/9993
+fe92971aad 1.8.7  LEAF      14 DIRECT -1       4150     2.2.2.2/9993
+PS C:\Windows\system32>
+```
+
+可以看到有一个 `PLANET` 和 `LEAF` 角色，连接方式均为 `DIRECT`（直连）
+
+到这里就加入网络成功了！
+> [!CAUTION]
+> **恭喜你成功完成了配置的 80%！**
+
+### GUI 方式连接游戏（推荐）
 
 1. 启动文明6
 2. 以**管理员身份**运行 `kskbl-gui.exe`
 3. 在「联机」页填写服务端 **IPv4 地址**
 4. 点击「开始注入」，状态显示「已注入」后即可联机
+
+服务端就是游戏里局域网开房的那个玩家，ipv4地址就是1.6授权的内网ip
 
 ### 命令行方式
 
