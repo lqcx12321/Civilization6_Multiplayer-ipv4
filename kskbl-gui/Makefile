@@ -1,5 +1,5 @@
 # Copyright (C) 2023 xaxys. All rights reserved.
-PACKAGE_NAME := injciv6-gui
+PACKAGE_NAME := kskbl-gui
 
 GO         ?= go.exe
 PWD        := ${CURDIR}
@@ -14,7 +14,7 @@ CXX64PREFIX    := x86_64-w64-mingw32-
 CC             := $(CXX64PREFIX)gcc
 CXX            := $(CXX64PREFIX)g++
 
-ICONS := $(PWD)/assets/inject.ico,$(PWD)/assets/host.ico,$(PWD)/assets/remote.ico,$(PWD)/assets/tool.ico,$(PWD)/assets/about.ico
+ICONS := $(PWD)/assets/inject.ico,$(PWD)/assets/remote.ico,$(PWD)/assets/tool.ico,$(PWD)/assets/about.ico
 
 all: gen build
 
@@ -30,7 +30,7 @@ build:
 	@$(GO) env -w CGO_ENABLED=1 CC="$(CC)" CXX="$(CXX)"
 	@$(GO) build \
 		-tags walk_use_cgo \
-		-ldflags="-H windowsgui -X 'injciv6-gui/components.BuildTags=$(BUILD_TAGS)' -X 'injciv6-gui/components.BuildTime=$(BUILD_TIME)' -X 'injciv6-gui/components.GitCommit=$(GIT_COMMIT)' -X 'injciv6-gui/components.GoVersion=$(GO_VERSION)'" \
+		-ldflags="-H windowsgui -X 'kskbl-gui/components.BuildTags=$(BUILD_TAGS)' -X 'kskbl-gui/components.BuildTime=$(BUILD_TIME)' -X 'kskbl-gui/components.GitCommit=$(GIT_COMMIT)' -X 'kskbl-gui/components.GoVersion=$(GO_VERSION)'" \
 		-o $(BIN_DIR)/$(TARGET)
 
 run: build

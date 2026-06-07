@@ -4,7 +4,7 @@ package utils
 #cgo CFLAGS: -I ${SRCDIR}/../../inc -I ${SRCDIR}/../../src
 #cgo CPPFLAGS: -I ${SRCDIR}/../../inc -I ${SRCDIR}/../../src
 #cgo CXXFLAGS: -I ${SRCDIR}/../../inc -I ${SRCDIR}/../../src
-#cgo LDFLAGS: -static -l ws2_32 -l iphlpapi
+#cgo LDFLAGS: -static -l ws2_32
 #include <stdio.h>
 #include "inject_util.cpp"
 #include "inject.cpp"
@@ -53,7 +53,6 @@ const (
 	InjectStatusUnknown     InjectStatus = 0
 	InjectStatusNotInjected InjectStatus = 1
 	InjectStatusInjected    InjectStatus = 2
-	InjectStatusRunningIPv6 InjectStatus = 3
 )
 
 func GrantSeDebugPrivilege() bool {
@@ -83,9 +82,6 @@ func IsCiv6Injected() InjectStatus {
 	handle := C.find_module_handle_from_pid(pid, dllCstrW)
 	if C.is_null(handle) {
 		return InjectStatusNotInjected
-	}
-	if C.is_injciv6_running(pid) {
-		return InjectStatusRunningIPv6
 	}
 	return InjectStatusInjected
 }
@@ -120,7 +116,7 @@ func GetCurrentDir() string {
 }
 
 func GetInjectorPath() (string, bool) {
-	path := filepath.Join(GetCurrentDir(), "injciv6.exe")
+	path := filepath.Join(GetCurrentDir(), "kskbl.exe")
 	_, err := os.Stat(path)
 	if err != nil {
 		return "", false
@@ -142,7 +138,7 @@ func WriteConfig(address string) error {
 	if err != nil {
 		return err
 	}
-	path := filepath.Join(dir, "injciv6-config.txt")
+	path := filepath.Join(dir, "kskbl-config.txt")
 
 	// Modify or create the file
 	if err := os.WriteFile(path, []byte(address), 0644); err != nil {
@@ -157,7 +153,7 @@ func ReadConfig() (string, error) {
 	if err != nil {
 		return "", err
 	}
-	path := filepath.Join(dir, "injciv6-config.txt")
+	path := filepath.Join(dir, "kskbl-config.txt")
 
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		return "", nil // File not exist

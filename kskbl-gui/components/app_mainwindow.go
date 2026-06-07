@@ -1,8 +1,8 @@
 package components
 
 import (
-	"injciv6-gui/service"
-	"injciv6-gui/utils"
+	"kskbl-gui/service"
+	"kskbl-gui/utils"
 )
 
 type AppMainWindow struct {

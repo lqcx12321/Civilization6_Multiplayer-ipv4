@@ -6,8 +6,8 @@ import (
 	"os/exec"
 	"strings"
 
-	"injciv6-gui/service"
-	"injciv6-gui/utils"
+	"kskbl-gui/service"
+	"kskbl-gui/utils"
 
 	"github.com/lxn/walk"
 	. "github.com/lxn/walk/declarative"
@@ -195,9 +195,6 @@ func (p *BaseInjectPage) updateClientStartStopButton() {
 
 	injectStatus := service.Inject.IsInjected()
 	switch injectStatus {
-	case utils.InjectStatusRunningIPv6:
-		p.startStopButton.SetText("请先返回至游戏主菜单")
-		return
 	case utils.InjectStatusInjected:
 		p.startStopButton.SetText("移除注入")
 	case utils.InjectStatusNotInjected:
@@ -211,7 +208,7 @@ func (p *BaseInjectPage) updateClientStartStopButton() {
 func (p *BaseInjectPage) OnServerStartStopButtonClicked() {
 	injectStatus := service.Inject.IsInjected()
 	switch injectStatus {
-	case utils.InjectStatusInjected, utils.InjectStatusRunningIPv6:
+	case utils.InjectStatusInjected:
 		p.StopInject()
 	default:
 		p.StartInject()

@@ -65,7 +65,7 @@ struct SockAddrIn {
     static bool from_addr(const char *addr, SockAddrIn *addr_in) {
         struct addrinfo hints, *res;
         memset(&hints, 0, sizeof(hints));
-        hints.ai_family = AF_UNSPEC; // 不指定是IPv4还是IPv6
+        hints.ai_family = AF_INET;
 
         int err = getaddrinfo(addr, NULL, &hints, &res);
         if (err != 0) {

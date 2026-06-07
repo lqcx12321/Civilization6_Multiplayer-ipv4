@@ -2,8 +2,8 @@ package components
 
 import (
 	"fmt"
-	"injciv6-gui/service"
-	"injciv6-gui/utils"
+	"kskbl-gui/service"
+	"kskbl-gui/utils"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -109,9 +109,9 @@ func (p *ToolsPage) OpenFile(name, filename string) {
 }
 
 func (p *ToolsPage) OpenConfigFile() {
-	p.OpenFile("配置文件", "injciv6-config.txt")
+	p.OpenFile("配置文件", "kskbl-config.txt")
 }
 
 func (p *ToolsPage) OpenLogFile() {
-	p.OpenFile("日志文件", "injciv6-log.txt")
+	p.OpenFile("日志文件", "kskbl-log.txt")
 }

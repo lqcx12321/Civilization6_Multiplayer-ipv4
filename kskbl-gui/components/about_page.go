@@ -33,7 +33,7 @@ func NewAboutPage(parent walk.Container) (Page, error) {
 					Label{
 						Font:          Font{PointSize: 10},
 						TextAlignment: AlignNear,
-						Text:          "injciv6-gui",
+						Text:          "kskbl-gui",
 					},
 					HSpacer{},
 					Label{

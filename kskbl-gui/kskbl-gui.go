@@ -1,9 +1,9 @@
 package main
 
 import (
-	"injciv6-gui/components"
-	"injciv6-gui/service"
-	"injciv6-gui/utils"
+	"kskbl-gui/components"
+	"kskbl-gui/service"
+	"kskbl-gui/utils"
 
 	"github.com/lxn/walk"
 	. "github.com/lxn/walk/declarative"
@@ -53,7 +53,7 @@ func main() {
 			},
 		},
 	}
-	amw, err := components.NewAppMainWindow("injciv6-gui", cfg)
+	amw, err := components.NewAppMainWindow("kskbl-gui", cfg)
 	if err != nil {
 		panic(err)
 	}

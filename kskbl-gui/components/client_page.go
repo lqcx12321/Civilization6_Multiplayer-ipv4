@@ -2,7 +2,7 @@ package components
 
 import (
 	"fmt"
-	"injciv6-gui/utils"
+	"kskbl-gui/utils"
 
 	"github.com/lxn/walk"
 	. "github.com/lxn/walk/declarative"

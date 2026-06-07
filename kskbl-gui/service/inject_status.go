@@ -2,7 +2,7 @@ package service
 
 import (
 	"context"
-	"injciv6-gui/utils"
+	"kskbl-gui/utils"
 	"sync"
 	"time"
 )

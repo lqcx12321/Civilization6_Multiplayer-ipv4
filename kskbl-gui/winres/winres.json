@@ -36,14 +36,14 @@
           "0409": {
             "Comments": "",
             "CompanyName": "",
-            "FileDescription": "injciv6 GUI",
+            "FileDescription": "kskbl GUI",
             "FileVersion": "0.3.3.0",
             "InternalName": "",
             "LegalCopyright": "© xaxys",
             "LegalTrademarks": "",
-            "OriginalFilename": "injciv6-gui.exe",
+            "OriginalFilename": "kskbl-gui.exe",
             "PrivateBuild": "",
-            "ProductName": "injciv6-gui",
+            "ProductName": "kskbl-gui",
             "ProductVersion": "0.3.3.0",
             "SpecialBuild": ""
           }
@@ -57,9 +57,6 @@
     },
     "#3": {
       "0000": "inject.ico"
-    },
-    "#4": {
-      "0000": "host.ico"
     },
     "#5": {
       "0000": "remote.ico"

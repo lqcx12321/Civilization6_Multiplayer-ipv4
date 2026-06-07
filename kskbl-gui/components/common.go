@@ -2,8 +2,8 @@ package components
 
 import (
 	"fmt"
-	"injciv6-gui/service"
-	"injciv6-gui/utils"
+	"kskbl-gui/service"
+	"kskbl-gui/utils"
 	"os"
 
 	"github.com/lxn/walk"

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <shlobj.h>
 #include "inject.h"
-#include "injciv6.h"
+#include "kskbl.h"
 
 int main(int argc, char *argv[])
 {
