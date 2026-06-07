@@ -10,7 +10,7 @@
 
 **注入工具可能被杀毒软件拦截，使用前请关闭 Windows Defender 或添加白名单。**
 
-### 0.前置配置
+### 0 前置配置
 
 大体分为两步
 第一步所有进行联机玩家先要进入虚拟局域网
@@ -19,12 +19,35 @@
 
 第二步加入房间玩家启动gui注入ip
 
-### 1.创建虚拟局域网
+### 1 创建虚拟局域网
 
 [![通过雨云一键部署](https://rainyun-apps.cn-nb1.rains3.com/materials/deploy-on-rainyun-cn.svg)](https://app.rainyun.com/apps/rca/store/6215?ref=220429)
+
+#### 1.1 配置服务器
 有免费试用，可以试试
 从上面链接启动后选择最低配置，3-4个人玩完全没问题，有需求可以自行调整
 ![ui](assets/yuyun1.png)
+
+#### 1.2 下载 planet 文件
+请妥善保存这些文件，后续配置客户端时会用到
+![ui](assets/yuyun2.png)
+
+#### 1.3 新建网络
+![ui](assets/yuyun3.png)
+访问 `http://上图1:上图2` 进入 controller 页面（不要写成https）
+![ui](assets/net1.png)
+**默认登录信息：**
+- 用户名：`admin`
+- 密码：`password`
+
+1. 登录后点击 "Networks" 菜单
+2. 点击 "Add Network" 按钮创建新网络
+3. 输入一个便于识别的网络名称，其他选项可保持默认
+4. 点击 "Create Network" 按钮完成创建
+![ui](assets/net2.png)
+
+创建成功后系统会自动生成一个网络 ID，这个 ID 在后续客户端配置时会用到，请记录下来。
+![ui](assets/net3.png)
 
 ### GUI 方式（推荐）
 
